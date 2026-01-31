@@ -5,8 +5,8 @@ import Image from "next/image";
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
 
-import BacgroundAnimate from "../Component/Animation/BackgroundAnimate";
-import { azeretMono, poppins } from "../fonts";
+import BacgroundAnimate from "../../../lib/hooks/gsapanimation/background-animation/BackgroundAnimate";
+import { azeretMono, poppins } from "../../../app/fonts";
 
 const link = [
     {href : 'https://github.com/DwiPratamaKadek', label : 'DwiPratamaKadek', icon : '/icon/github.png', alt : 'github'},
@@ -21,6 +21,8 @@ export default function AboutSections() {
     const linkItems = useRef(null)
     
     useEffect (() => {
+      
+
         const about = gsap.utils.toArray(".textRef")
         // const links = gsap.utils.toArray(".linkItems")
         const tl = gsap.timeline()
@@ -49,7 +51,7 @@ export default function AboutSections() {
           opacity : 0,
           ease : "power4.inOut"
         },'-=0.4')
-    })
+    },[])
 
 
   return (

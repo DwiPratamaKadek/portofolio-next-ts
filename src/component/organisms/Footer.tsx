@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/all"
 import { useEffect, useRef } from "react"
 import Link from "next/link"
 
-import Marquee from "../Animation/Marquee"
+import Marquee from "../../lib/hooks/gsapanimation/background-animation/Marquee"
 import { azeretMono } from "@/app/fonts"
 
 gsap.registerPlugin(ScrollTrigger)

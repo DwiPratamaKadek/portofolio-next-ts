@@ -1,5 +1,5 @@
 
-import AboutSections from "./AboutSections";
+import AboutSections from "../../component/pages/about/AboutSections";
 
 
 export default function AboutPage() {

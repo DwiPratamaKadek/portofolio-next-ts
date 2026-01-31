@@ -1,8 +1,7 @@
 'use client';
 
-import Footer from "./Component/Layouts/Footer";
-import Hero from "./Component/Sections/Hero";
-import HorizontalSection from "./Component/Sections/HorizontalSection";
+import Hero from "../component/pages/home/Hero";
+import HorizontalSection from "../component/pages/home/HorizontalSection";
 
 // const link = [
 //         {href : 'https://github.com/DwiPratamaKadek',alt : 'github', src : '/icon/github.png', name: 'DwiPratamaKadek'},
@@ -13,9 +12,9 @@ import HorizontalSection from "./Component/Sections/HorizontalSection";
 export default function Home() {
 
   return (
-    <main className=" grid justify-center ">
+    <main className="w-full">
       <Hero/> 
-      <HorizontalSection />
+      <HorizontalSection/>
     </main>
   );
 

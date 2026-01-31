@@ -4,7 +4,7 @@ import Typewriter from 'typewriter-effect';
 import Image from 'next/image';
 import gsap from 'gsap';
 
-import { azeretMono } from '../fonts';
+import { azeretMono } from '../../../app/fonts';
 import { useEffect} from 'react';
 
 
