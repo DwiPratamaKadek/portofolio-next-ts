@@ -7,6 +7,9 @@ import { useEffect, useRef } from "react";
 
 import BacgroundAnimate from "../../../lib/hooks/gsapanimation/background-animation/BackgroundAnimate";
 import { azeretMono, poppins } from "../../../app/fonts";
+import HighExpandAnimation from "@/lib/hooks/gsapanimation/child-animation/HighExpandAnimation";
+import LeftSlideAnimation from "@/lib/hooks/gsapanimation/child-animation/LeftSlideAnimation";
+import SlideDownAnimation from "@/lib/hooks/gsapanimation/child-animation/SlideDownAnimation";
 
 const link = [
     {href : 'https://github.com/DwiPratamaKadek', label : 'DwiPratamaKadek', icon : '/icon/github.png', alt : 'github'},
@@ -21,38 +24,17 @@ export default function AboutSections() {
     const linkItems = useRef(null)
     
     useEffect (() => {
+      const textRef = gsap.utils.toArray<HTMLElement>(".textRef")
+
+      const tl = gsap.timeline()
+      tl.add(HighExpandAnimation(lineRef.current!))
+      textRef.forEach((el) => {
+        tl.add(LeftSlideAnimation(el))
+      })
+      tl.add(LeftSlideAnimation(aboutRef.current!))
+      tl.add(SlideDownAnimation(linkItems.current!))
       
-
-        const about = gsap.utils.toArray(".textRef")
-        // const links = gsap.utils.toArray(".linkItems")
-        const tl = gsap.timeline()
-
-        tl.fromTo(lineRef.current, 
-          {height : '0%'},
-          {height: '40%'}
-        )
-
-        tl.from(about, {
-          x: -50,
-          opacity : 0,
-          stagger : 0.5,
-          duration : 0.5,
-          ease : "power4.inOut"
-        }, '-=0.5')
-
-        tl.from(aboutRef.current, {
-          y : -50,
-          opacity: 0,
-          ease : 'power3.out'
-        },'-=0.4')
-
-        tl.from(linkItems.current, {
-          x : -50,
-          opacity : 0,
-          ease : "power4.inOut"
-        },'-=0.4')
     },[])
-
 
   return (
     <>

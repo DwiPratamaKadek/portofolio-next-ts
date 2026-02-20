@@ -9,7 +9,7 @@ import { gsap } from "@/lib/utils/GsapHalper";
 
 import { useRef, useEffect } from "react";
 import WidthExpandAnimation from "@/lib/hooks/gsapanimation/child-animation/WidthExpandAnimation";
-import SlideTopAnimation from "@/lib/hooks/gsapanimation/child-animation/SlideTopAnimation";
+import SlideDownAnimation from "@/lib/hooks/gsapanimation/child-animation/SlideDownAnimation";
 
 
 gsap.registerPlugin(TextPlugin)
@@ -31,7 +31,7 @@ export default function Hero() {
       .add(TypingAnimation(text1Ref.current, "Helo, !."))
       .add(TypingAnimation(text2Ref.current, "I Am Dwi"))
       .add(WidthExpandAnimation(lineRef.current))
-      .add(SlideTopAnimation(text3Ref.current))
+      .add(SlideDownAnimation(text3Ref.current))
     }, [])
     
     return (
@@ -61,7 +61,7 @@ export default function Hero() {
           {/* Deskripsi */}
           <p
             ref={text3Ref}
-            className="text-gray-500 font-thin opacity-0 mt-5 text-sm sm:text-base md:text-lg lg:text-xl max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl mx-auto sm:mx-0 transition-all duration-300 hover:scale-105 hover:font-bold"
+            className="text-gray-500 font-thin opacity-0 mt-5 text-sm sm:text-base md:text-lg lg:text-xl max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl mx-auto sm:mx-0 transition-all duration-300 hover:scale-105"
           >
             I build how things look and feel — from rough sketches to websites
             that actually work.

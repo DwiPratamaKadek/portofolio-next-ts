@@ -3,7 +3,8 @@
 import { azeretMono } from "@/app/fonts";
 import FlipAnimation from "@/lib/hooks/gsapanimation/child-animation/FlipAnimation";
 import LeftSlideAnimation from "@/lib/hooks/gsapanimation/child-animation/LeftSlideAnimation";
-import SlideTopAnimation from "@/lib/hooks/gsapanimation/child-animation/SlideTopAnimation";
+import SlideDownAnimation from "@/lib/hooks/gsapanimation/child-animation/SlideDownAnimation";
+
 
 import HorizontalScroll from "@/lib/hooks/gsapanimation/scroll-animation/HorizontalScroll";
 import { gsap, ScrollTrigger } from "@/lib/utils/GsapHalper";
@@ -57,7 +58,7 @@ export default function HorizontalSection() {
         }
       })
       saction2Tl.add(LeftSlideAnimation(span5.current!))
-      saction2Tl.add(SlideTopAnimation(span6.current!))
+      saction2Tl.add(SlideDownAnimation(span6.current!))
       saction2Tl.add(LeftSlideAnimation(span8.current!))
       saction2Tl.add(FlipAnimation(span7.current!))
     })
@@ -97,7 +98,7 @@ export default function HorizontalSection() {
                 What
               </h1>
               <h1 ref={span3} className="span bg-amber-300 p-3 rounded-xl my-2">
-                i am doi ng ?
+                i am doing ?
               </h1>
               <h1 ref={span4} className="span "> I’m a web developer who </h1>
             </div>

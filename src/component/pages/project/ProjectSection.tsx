@@ -58,90 +58,14 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default function ProjectSections() {
     
-    const containerRef = useRef(null)
-    const position = useRef(0) // untuk menyimpan nilai xnya 
+  const index = useRef(0)
+  
 
-    const slidePrev = () => {
-        position.current = Math.min(position.current + 400, 0)
-        gsap.to(containerRef.current, {
-            x : position.current,
-            duration : 0.5,
-            ease : "power2.inOut"
-        })
-    }
-
-    const slideNext = () => {
-        position.current = position.current - 400
-        gsap.to(containerRef.current, {
-            x : position.current,
-            duration : 0.5,
-            ease : "power3.inOut" 
-        })
-    }
-
-    useEffect (() => {
-        const textRef = gsap.utils.toArray(".textRef")
-
-        gsap.from(textRef, {
-            rotationX: 90,
-            opacity: 0,
-            stagger : 0.5,
-            transformOrigin: "top center",
-            duration: 0.8,
-            ease: "back.out(1.7)"
-        })
-        
-        gsap.from(containerRef.current, {
-            y : 100,
-            opacity : 0,
-            duration : 1,
-            ease : " power2.inOut",
-        })
-    },[])
-
-    
     return (
         <>
-            <div className={`${azeretMono.className} flex flex-col justify-center h-screen mx-10 gap-10 `}>
-                    <div className="text-7xl">
-                        <h1 className="textRef"> MY </h1>
-                        <h1 className="textRef"> Blog. </h1>
-                    </div>
-                    <div className="relative w-full overflow-hidden">
-                        <div ref={ containerRef } className="flex gap-5 ">
-                            {linkProject.map((img,i) =>(
-                                <div  key={i} className="p-3 min-w-[400px] h-auto rounded-xl border-2 border-gray-200  ">
-                                    <div className="flex flex-col gap-3 p-3">
-                                        <h1 className="text-3xl">{img.title}</h1>
-                                        <Image src={img.file} width={300} height={300} alt={img.title}/>
-                                        <p className="text-sm">{img.desc}</p>
-                                        <p className="text-sm">{img.tool}</p>
-                                        <div className="flex justify-end gap-5 my-5 text-white ">
-                                            <Link href={img.link} className="bg-amber-500 rounded-md p-3 hover:text-black hover:bg-white transition-colors duration-300">go to side</Link>
-                                            <Link href={img.github} className="bg-blue-500 rounded-md p-3 hover:text-black hover:bg-white transition-colors duration-300">see on gitHub</Link>
-                                        </div>
-                                    </div>
-                                </div> 
-                            ))}
-                        </div>
-                    </div>
-                    {/* Next and Prev */}
-                    <div className="flex justify-end gap-5 my-10">
-                        <button
-                            onClick={slidePrev}
-                            className=" bg-gray-700 text-white px-3 py-2 rounded-full"
-                        >
-                            <Icon icon="ph:arrow-left-bold"/>
-                        </button>
+            <section className="viewport overflow-hidden">
 
-                         <button
-                            onClick={slideNext}
-                            className=" bg-gray-700 text-white px-3 py-2 rounded-full"
-                            >
-                                <Icon icon="ph:arrow-right-bold"/>
-                        </button>
-                    </div>
-            </div>
+            </section>
         </>
     )
 }
