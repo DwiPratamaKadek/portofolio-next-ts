@@ -8,7 +8,7 @@ import Link from "next/link"
 import { Icon } from "@iconify/react/dist/iconify.js"
 
 
-import { azeretMono } from "../../../app/fonts"
+import { azeretMono } from "@/lib/hooks/style/fonts";
 
 // export async function getStaticProps() {
 //     const dir = path.join(process.cwd(), 'public/images/photos')

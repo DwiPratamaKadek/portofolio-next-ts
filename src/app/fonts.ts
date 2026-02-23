@@ -1,4 +1,4 @@
-import { Roboto_Mono, Azeret_Mono,Poppins } from "next/font/google";
+import { Roboto_Mono, Azeret_Mono, Poppins } from "next/font/google";
 
 export const robotoMono = Roboto_Mono({
 //   variable: "--font-roboto-mono",

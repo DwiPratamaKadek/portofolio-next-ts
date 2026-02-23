@@ -84,7 +84,7 @@ export default function Marquee () {
         <>
             <div className=" flex flex-col gap-5 overflow-hidden">
                 {/* untuk marquee 1 */}
-                            <div  className={`${azeretMono.className} flex text-5xl whitespace-nowrap text-gray-500  `}>
+                            <div  className={`${azeretMono.className} flex text-3xl md:text-5xl whitespace-nowrap text-gray-500  `}>
                                 <div ref={row1Ref1} className="flex gap-4">
                                     {items.map((tech, i) => (
                                         <h1 key={i} className="hover:text-black transfrom transition-all duration-300"> {tech} </h1> 
@@ -97,7 +97,7 @@ export default function Marquee () {
                                 </div>
                             </div>
                         {/* untuk marquee 2 */}
-                            <div  className={`${azeretMono.className} flex text-5xl whitespace-nowrap text-gray-500  `}>
+                            <div  className={`${azeretMono.className} flex text-3xl md:text-5xl whitespace-nowrap text-gray-500  `}>
                                 <div ref={row2Ref1} className="flex gap-4">
                                     {items.map((tech, i) => (
                                         <h1 key={i} className="hover:text-black transfrom transition-all duration-300"> {tech} </h1> 

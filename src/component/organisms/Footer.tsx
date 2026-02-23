@@ -6,7 +6,7 @@ import { useEffect, useRef } from "react"
 import Link from "next/link"
 
 import Marquee from "../../lib/hooks/gsapanimation/background-animation/Marquee"
-import { azeretMono } from "@/app/fonts"
+import { azeretMono } from "@/lib/hooks/style/fonts";
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -60,24 +60,19 @@ export default function Footer (){
         <footer className="h-screen overflow-hidden">  
             {/* Marquee */}
             <div className={`${azeretMono.className} flex flex-col items-center gap-5 `}>
-                <h1 ref={textRef} className="text-7xl">What i Use</h1>
+                <h1 ref={textRef} className="text-3xl md:text-7xl">What i Use</h1>
                 <Marquee />
             </div>
             {/* Href */}
-            <div className={`${azeretMono.className} flex flex-col justify-end  min-h-[60%] gap-5 text-7xl  mx-5`}>
-            {label.map((items)=> (
-                <h1 key={items.href}>
-                    <Link  href={items.href} className="footer-link inline-block text-gray-500 hover:text-black transition-colors duration-300">
-                        {items.label}
-                    </Link>
-                </h1>
-            ))}
-            </div>
-            <div className={` ${azeretMono.className} flex justify-around text-xl text-gray-600 my-24 bg-gray-300 h-full p-3 `}>
-                <h3> I Kadek Dwi Pratama </h3>
-                <h3> dwipratamaikadek@gmail.com </h3>
-                <h3> ka.dwip </h3>
+            <div className={`${azeretMono.className} flex flex-col justify-center min-h-[60%] gap-5 text-3xl mx-1 md:text-7xl md:mx-5`}>
+                {label.map((items)=> (
+                    <h1 key={items.href}>
+                        <Link  href={items.href} className="footer-link inline-block text-gray-500 hover:text-black transition-colors duration-300">
+                            {items.label}
+                        </Link>
+                    </h1>
+                ))}
             </div>
         </footer>
     )
-}
+}   

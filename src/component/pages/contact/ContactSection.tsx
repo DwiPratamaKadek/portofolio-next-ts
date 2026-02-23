@@ -4,7 +4,7 @@ import Typewriter from 'typewriter-effect';
 import Image from 'next/image';
 import gsap from 'gsap';
 
-import { azeretMono } from '../../../app/fonts';
+import { azeretMono } from "@/lib/hooks/style/fonts";
 import { useEffect} from 'react';
 import SlideUpAnimation from '@/lib/hooks/gsapanimation/child-animation/SlideUpAnimation';
 

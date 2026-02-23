@@ -1,6 +1,7 @@
 "use client";
 
-import { azeretMono } from "@/app/fonts";
+// import { azeretMono } from "@/app/fonts";
+import { azeretMono } from "@/lib/hooks/style/fonts";
 import BacgroundAnimate from "../../../lib/hooks/gsapanimation/background-animation/BackgroundAnimate";
 
 import  TypingAnimation  from "@/lib/hooks/gsapanimation/text-animation/TypingAnimation";

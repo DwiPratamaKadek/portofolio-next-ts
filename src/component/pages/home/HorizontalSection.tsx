@@ -1,13 +1,13 @@
 "use client";
 
-import { azeretMono } from "@/app/fonts";
+import { azeretMono } from "@/lib/hooks/style/fonts";
 import FlipAnimation from "@/lib/hooks/gsapanimation/child-animation/FlipAnimation";
 import LeftSlideAnimation from "@/lib/hooks/gsapanimation/child-animation/LeftSlideAnimation";
 import SlideDownAnimation from "@/lib/hooks/gsapanimation/child-animation/SlideDownAnimation";
 
 
 import HorizontalScroll from "@/lib/hooks/gsapanimation/scroll-animation/HorizontalScroll";
-import { gsap, ScrollTrigger } from "@/lib/utils/GsapHalper";
+import { gsap} from "@/lib/utils/GsapHalper";
 
 import { useEffect, useRef } from "react";
 
@@ -31,52 +31,62 @@ export default function HorizontalSection() {
 
   useEffect(() => {
     if( !triggerRef.current || !horizontalRef.current ) return;
-    // apa itu gsap context? 
-      const ctx = gsap.context(() => {
-      const horizontalTl = HorizontalScroll(triggerRef.current!, horizontalRef.current!,);
-      
-      const saction1Tl = gsap.timeline({
-        scrollTrigger : {
-          trigger : trigger1.current!,
-          containerAnimation : horizontalTl,
-          start : "left center",
-          markers : true,
-          toggleActions: "play none none reverse",  
-        }
-      })
-      saction1Tl.add(LeftSlideAnimation(span2.current!))
-      saction1Tl.add(FlipAnimation(span3.current!));
-      saction1Tl.add(LeftSlideAnimation(span4.current!));
-      
-      const saction2Tl = gsap.timeline({
-        scrollTrigger : {
-          trigger : trigger2.current!,
-          containerAnimation : horizontalTl,
-          start : "left center",
-          markers : true,
-          toggleActions: "play none none reverse",  
-        }
-      })
-      saction2Tl.add(LeftSlideAnimation(span5.current!))
-      saction2Tl.add(SlideDownAnimation(span6.current!))
-      saction2Tl.add(LeftSlideAnimation(span8.current!))
-      saction2Tl.add(FlipAnimation(span7.current!))
-    })
+    const mm = gsap.matchMedia();
 
+    mm.add("(min-width: 768px)", () => {
+        // apa itu gsap context? 
+      const ctx = gsap.context(() => {
+          const horizontalTl = HorizontalScroll(triggerRef.current!, horizontalRef.current!,);
+          
+          const saction1Tl = gsap.timeline({
+            scrollTrigger : {
+              trigger : trigger1.current!,
+              containerAnimation : horizontalTl,
+              start : "left center",
+              markers : true,
+              toggleActions: "play none none reverse",  
+            }
+          })
+          saction1Tl.add(LeftSlideAnimation(span2.current!))
+          saction1Tl.add(FlipAnimation(span3.current!));
+          saction1Tl.add(LeftSlideAnimation(span4.current!));
+          
+          const saction2Tl = gsap.timeline({
+            scrollTrigger : {
+              trigger : trigger2.current!,
+              containerAnimation : horizontalTl,
+              start : "left center",
+              markers : true,
+              toggleActions: "play none none reverse",  
+            }
+          })
+          saction2Tl.add(LeftSlideAnimation(span5.current!))
+          saction2Tl.add(SlideDownAnimation(span6.current!))
+          saction2Tl.add(LeftSlideAnimation(span8.current!))
+          saction2Tl.add(FlipAnimation(span7.current!))
+
+          return () => ctx.revert();
+      })
+    })
+    mm.add("(max-width: 767px)", () => {
+      gsap.context(() => {
+
+      })
+    })
     
-    return () => ctx.revert();
+        
   },[])
    
 
   return (
     <section ref={triggerRef} className="relative h-screen overflow-hidden">
-        <div ref={horizontalRef} className="flex flex-row w-max h-screen">
+        <div ref={horizontalRef} className="flex flex-col md:flex-row w-max h-screen">
 
           {/* Section 1 */}
           <div  className="panel w-screen h-screen flex items-center justify-center">
             <div className="mx-20">
               <h1
-                className={`${azeretMono.className} text-6xl leading-snug`}
+                className={`${azeretMono.className} text-3xl md:text-6xl leading-snug`}
               >
                 Programming is like painting — each line of code brings <br />
                 <span
@@ -91,10 +101,8 @@ export default function HorizontalSection() {
 
           {/* Section 2 */}
           <div ref={trigger1} className="panel w-screen h-screen flex justify-around items-center ">
-            <div
-              className={`${azeretMono.className}  relative flex text-3xl sm:text-5xl mx-10 md:text-6xl lg:text-7xl gap-10`}
-            >
-              <h1 ref={span2} className="span absolute bg-amber-500 p-3 rounded-xl mx-2 sm:-mx-7 -my-20 z-10 ">
+            <div className={`${azeretMono.className} relative flex flex-col md:flex-row text-3xl mx-10 md:text-7xl gap-0 md:gap-10`}>
+              <h1 ref={span2} className="span relative md:absolute bg-amber-500 p-3 rounded-xl mx-2 md:-mx-7 -my-20 z-10 ">
                 What
               </h1>
               <h1 ref={span3} className="span bg-amber-300 p-3 rounded-xl my-2">
