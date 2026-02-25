@@ -49,14 +49,15 @@ export default function Footer (){
             scrollTrigger: {
                 trigger: links[0]?.parentNode as HTMLElement, // trigger dari elemen pertama
                 start: "top center",
-                toggleActions: "play none none reverse"
+                end : "bottom center",
+                toggleActions: "play none none reverse",
+                markers: true
             }
         })
 
     },[])
     return (
         // --------------- FOOTER ---------------
-        
         <footer className="h-screen overflow-hidden">  
             {/* Marquee */}
             <div className={`${azeretMono.className} flex flex-col items-center gap-5 `}>
@@ -75,4 +76,4 @@ export default function Footer (){
             </div>
         </footer>
     )
-}   
+}

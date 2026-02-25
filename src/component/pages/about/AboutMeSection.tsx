@@ -30,15 +30,16 @@ export default function AboutMeSection(){
         {page: "7", content: "I enjoy exploring new things beyond the tech world."},
         {page: "8", content: "And yes, I'm open to job opportunities ehe. 👀"}
     ]
+    const totalCards = cardData.length
 
     return (
         <>  
             {/* background */}
-            <div className="absolute inset-0 z-[-1] h-[800vh]">
+            <div className="absolute inset-0 z-[-1]"  style={{height : `${totalCards* 100}vh`}}>
                 <BacgroundAnimate />
             </div>
             {/* backgorund */}
-            <section ref={triggerRef} className="relative w-full h-[800vh] ">
+            <section ref={triggerRef} className="relative w-full" style={{height : `${totalCards* 100}vh`}}>
                 <div ref={scrollRef} className="sticky top-0 flex justify-center items-center w-full h-screen"> 
                     {cardData.map((card, i) => (    
                         <div key={i} className="card absolute border-2 bg-white rounded-4xl shadow-xl border-gray-500 w-72 md:w-md h-72 ">

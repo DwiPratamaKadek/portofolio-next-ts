@@ -31,7 +31,7 @@ const linkProject = [
         link : 'https://note-shop-dwi-pratamas-projects.vercel.app/', 
         desc : 'Aplikasi untuk membuat sebuah catatan belanja yang mempermudahkan pengguna untuk mencatat dan mengelola daftar belanja mereka', 
         title : "Catatan Belanja",
-        tool : "react, tailwindcss, javascript ",
+        tool : ["react", "tailwindcss", "javascript"],
         github : "https://github.com/DwiPratamaKadek/catatan-belanja"
     },
     {
@@ -39,7 +39,7 @@ const linkProject = [
         link : 'https://weather-map-psi.vercel.app/', 
         desc : 'Weather Map adalah aplikasi web sederhana yang digunakan untuk mengetahui kondisi cuaca terkini di berbagai wilayah di Indonesia secara praktis dan cepat.', 
         title : "Weather Map" ,
-        tool : "rect, tailwindcss, typescript, Open Api",
+        tool : ["react", "tailwindcss", "typescript", "Open Api"],
         github : "https://github.com/DwiPratamaKadek/weather-map"
     },
     {
@@ -47,7 +47,7 @@ const linkProject = [
         link : 'https://frontend-chatbot-sejarah.vercel.app/', 
         desc : 'Chatbot sejarah Indonesia adalah aplikasi yang memberikan informasi sejarah secara interaktif dan mudah dipahami. Teknologi ini membantu pengguna belajar tentang tokoh, peristiwa, dan kerajaan Indonesia dengan lebih menarik.', 
         title : "Chat Bot Sejarah" ,
-        tool : "react, tailwindcss, typescript, Open Api Gemini, python",
+        tool : ["react", "tailwindcss", "typescript", "Api Gemini", "python"],
         github: "https://github.com/DwiPratamaKadek/beckend-chatbot-sejarah"
 
     },
@@ -58,13 +58,29 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default function ProjectSections() {
     
-  const index = useRef(0)
-  
-
     return (
         <>
-            <section className="viewport overflow-hidden">
-
+            <section className="flex flex-wrap justify-center gap-5 my-10 mx-5">
+                {linkProject.map((items) => (
+                    <div key={items.title} className={`${azeretMono.className} border border-gray-300 shadow-sm rounded-xl max-w-3xl`}>
+                        <div className="flex flex-col md:flex-wrap gap-5 p-5 items-center"> 
+                            <Image src={items.file} alt={items.title} width={350} height={250} className="flex-shrink-0 flex object-cover w-full h-auto"></Image>
+                            <div >
+                                <h2 className="font-bold text-xl">{items.title}</h2>
+                                <p className="font-thin text-sm mt-2 leading-relaxed">{items.desc}</p>
+                                <div className="flex flex-wrap gap-2 my-2">
+                                    {items.tool.map((tool) => (
+                                        <span key={tool} className="bg-gray-200 text-gray-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full ">{tool}</span>
+                                    ))}
+                                </div>
+                                <div className="flex gap-2 mt-3">
+                                    <Link href={items.link} className="rounded-full bg-blue-900 text-xs px-2.5 py-1 text-white">See Project</Link>
+                                    <Link href={items.github} className="rounded-full border border-blue-600 text-blue-600 bg-transparent text-xs px-2.5 py-1 ">See Code </Link>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ))}
             </section>
         </>
     )

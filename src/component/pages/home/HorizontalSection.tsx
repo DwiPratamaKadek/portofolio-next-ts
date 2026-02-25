@@ -19,6 +19,7 @@ export default function HorizontalSection() {
   const trigger1 = useRef(null)
   const trigger2 = useRef(null)
 
+  const span1 = useRef(null)
   const span2 = useRef(null)
   const span3 = useRef(null)
   const span4 = useRef(null)
@@ -70,7 +71,24 @@ export default function HorizontalSection() {
     })
     mm.add("(max-width: 767px)", () => {
       gsap.context(() => {
-
+        const tl = gsap.timeline({
+          scrollTrigger : {
+            trigger : triggerRef.current!,
+            start : "top center",
+            end : "bottom bottom", 
+            markers : true, 
+            scrub : 2,
+            toggleActions: "play none none reverse", 
+          }
+        })
+        tl.add(LeftSlideAnimation(span1.current!))
+        tl.add(LeftSlideAnimation(span2.current!))
+        tl.add(LeftSlideAnimation(span3.current!))
+        tl.add(LeftSlideAnimation(span4.current!))
+        tl.add(LeftSlideAnimation(span5.current!))
+        tl.add(SlideDownAnimation(span6.current!))
+        tl.add(LeftSlideAnimation(span8.current!))
+        tl.add(FlipAnimation(span7.current!))
       })
     })
     
@@ -79,12 +97,12 @@ export default function HorizontalSection() {
    
 
   return (
-    <section ref={triggerRef} className="relative h-screen overflow-hidden">
-        <div ref={horizontalRef} className="flex flex-col md:flex-row w-max h-screen">
+    <section ref={triggerRef} className="relative h-full md:h-screen overflow-hidden">
+        <div ref={horizontalRef} className="flex flex-col md:flex-row w-full md:w-max h-auto md:h-screen">
 
           {/* Section 1 */}
           <div  className="panel w-screen h-screen flex items-center justify-center">
-            <div className="mx-20">
+            <div ref={span1} className="mx-20">
               <h1
                 className={`${azeretMono.className} text-3xl md:text-6xl leading-snug`}
               >
@@ -101,11 +119,11 @@ export default function HorizontalSection() {
 
           {/* Section 2 */}
           <div ref={trigger1} className="panel w-screen h-screen flex justify-around items-center ">
-            <div className={`${azeretMono.className} relative flex flex-col md:flex-row text-3xl mx-10 md:text-7xl gap-0 md:gap-10`}>
-              <h1 ref={span2} className="span relative md:absolute bg-amber-500 p-3 rounded-xl mx-2 md:-mx-7 -my-20 z-10 ">
+            <div className={`${azeretMono.className} relative flex flex-col md:flex-row text-3xl mx-10 md:text-7xl gap-2 md:gap-10`}>
+              <h1 ref={span2} className="span relative md:absolute bg-amber-500 p-3 rounded-xl  md:-mx-7 md:-my-20 md:z-10 ">
                 What
               </h1>
-              <h1 ref={span3} className="span bg-amber-300 p-3 rounded-xl my-2">
+              <h1 ref={span3} className="span bg-amber-300 p-3 rounded-xl  md:my-2">
                 i am doing ?
               </h1>
               <h1 ref={span4} className="span "> I’m a web developer who </h1>
@@ -114,7 +132,7 @@ export default function HorizontalSection() {
 
           {/* Section 3 */}
           <div ref={trigger2} className="panel w-screen h-screen flex items-center justify-center ">
-            <div className={`${azeretMono.className} flex flex-col sm:flex-row text-3xl md:text-6xl lg:text-7xl gap-5 `}>
+            <div className={`${azeretMono.className} flex flex-col sm:flex-row text-3xl md:text-6xl lg:text-7xl gap-2 md:gap-5 `}>
               <h1 ref={span5} className="span  relative p-3 bg-gray-400 text-white rounded-2xl z-10 sm:absolute md:-my-28 md:-mx-16">
                 enjoys creating
               </h1>

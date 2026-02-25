@@ -23,14 +23,14 @@
         console.log(pathName)
 
         return (
-            <nav className={`${robotoMono.className} flex justify-around items-center p-4 shadow-sm rounded-b-xl `}>
+            <nav className={`${robotoMono.className} relative flex justify-around items-center p-4 shadow-sm rounded-b-xl `}>
                 {/* Logo */}
                 <div>
                     <h1>K.Dwi</h1>
                 </div>
                 {/* Bagian Routs  */}
                 {/* Tampila Dekstop */}
-                <ul className='flex gap-1'>
+                <ul className='hidden md:flex gap-1'>
                     {label.map((items) => (
                         <li key={items.label} className={pathName === items.href ? 'text-black' : 'text-gray-400'} >
                             <Link 
@@ -41,14 +41,14 @@
                         </li>
                     ))}
                 </ul>
-                {/* Tampilan Mobile
+                {/* Tampilan Mobile */}
                 <button className="md:hidden flex flex-col gap-1" onClick={() => setIsOpen(!isOpen)}>
                     <span className="w-6 h-0.5 bg-black"></span>
                     <span className="w-6 h-0.5 bg-black"></span>
                     <span className="w-6 h-0.5 bg-black"></span>
                 </button>
                 {isOpen && (
-                    <ul className="absolute top-full right-0 bg-white shadow-md rounded-lg p-4 flex flex-col gap-2">
+                    <ul className="absolute top-full right-0 bg-white text-black shadow-md rounded-lg p-4 flex flex-col gap-2">
                         {label.map((items) => (
                             <li key={items.label} className={pathName === items.href ? 'text-black' : 'text-gray-400'}>
                                 <Link 
@@ -60,7 +60,7 @@
                             </li>
                         ))}
                     </ul>
-                )} */}
+                )}
             </nav>
         )
     };

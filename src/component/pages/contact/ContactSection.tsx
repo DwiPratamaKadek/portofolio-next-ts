@@ -31,7 +31,7 @@ export default function ContactSection () {
     
     return (
         <>
-            <div className={` ${azeretMono.className} flex flex-col justify-center h-screen text-8xl mx-10`}>
+            <div className={` ${azeretMono.className} flex flex-col justify-center h-screen text-4xl md:text-8xl mx-10`}>
                 <Typewriter 
                     options={{
                         strings :['Let’s Talk', 'Let’s Collaborate', 'Let’s Create', 'Let’s Work Together'],
@@ -39,9 +39,9 @@ export default function ContactSection () {
                         loop : true
                     }}
                 />
-                <div className='flex gap-5 my-10'>
+                <div className='flex flex-col md:flex-row gap-5 my-10'>
                     {link.map((items) => (
-                        <div className='hover:scale-110 hover:shadow-xl hover:bg-gray-50 transition-all ' key={items.label}>
+                        <div className='md:hover:scale-110 hover:shadow-xl hover:bg-gray-50 transition-all ' key={items.label}>
                             <a href={items.href} className="linkRef flex items-center gap-2 p-3 rounded-xl" >
                                 <Image 
                                     src={items.icon} 
