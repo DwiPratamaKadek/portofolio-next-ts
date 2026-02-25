@@ -51,7 +51,7 @@ export default function Footer (){
                 start: "top center",
                 end : "bottom center",
                 toggleActions: "play none none reverse",
-                markers: true
+                // markers: true
             }
         })
 

@@ -44,7 +44,7 @@ export default function HorizontalSection() {
               trigger : trigger1.current!,
               containerAnimation : horizontalTl,
               start : "left center",
-              markers : true,
+              // markers : true,
               toggleActions: "play none none reverse",  
             }
           })
@@ -57,7 +57,7 @@ export default function HorizontalSection() {
               trigger : trigger2.current!,
               containerAnimation : horizontalTl,
               start : "left center",
-              markers : true,
+              // markers : true,
               toggleActions: "play none none reverse",  
             }
           })
@@ -76,7 +76,7 @@ export default function HorizontalSection() {
             trigger : triggerRef.current!,
             start : "top center",
             end : "bottom bottom", 
-            markers : true, 
+            // markers : true, 
             scrub : 2,
             toggleActions: "play none none reverse", 
           }

@@ -12,7 +12,7 @@ export default function HorizontalScroll(
           "+=" + (scrollElement.scrollWidth - window.innerWidth),
         scrub: 1,
         pin: true,
-        markers: true,
+        // markers: true,
       },
     });
 
