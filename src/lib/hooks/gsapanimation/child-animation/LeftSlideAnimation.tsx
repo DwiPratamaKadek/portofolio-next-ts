@@ -5,9 +5,9 @@ export default function LeftSlideAnimation(
 
 ){
     return gsap.from(triggerElement, {
-        x: -200,
+        x: -60,
         opacity: 0,
-        duration: 0.8,
+        duration: 0.5,
         ease: "power3.out",
     })
 }

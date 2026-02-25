@@ -1,4 +1,4 @@
-import { gsap, ScrollTrigger } from "@/lib/utils/GsapHalper";
+import { gsap } from "@/lib/utils/GsapHalper";
 
 export default function FlipAnimation(
     triggerElement : HTMLElement | null
@@ -14,7 +14,7 @@ export default function FlipAnimation(
         {
             rotationX: 0,
             opacity: 1,
-            duration: 1,
+            duration: 0.5,
             ease: "back.out",
             overwrite: "auto",
 
