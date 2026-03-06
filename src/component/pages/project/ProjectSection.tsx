@@ -51,6 +51,15 @@ const linkProject = [
         github: "https://github.com/DwiPratamaKadek/beckend-chatbot-sejarah"
 
     },
+     {
+        file : '/images/pos_postman.png', 
+        link : 'https://github.com/DwiPratamaKadek/pos-cafeShop-be-express-ts/tree/main', 
+        desc : 'Kafe Shop POS adalah sistem Point of Sale yang dirancang untuk membantu operasional kafe secara digital dan terstruktur. Sistem ini menyediakan berbagai fitur utama yang mendukung proses transaksi, pengelolaan stok, pencatatan kasir, serta manajemen pengguna dan akses. Dengan sistem ini, pemilik maupun staf kafe dapat bekerja lebih efisien, mengurangi kesalahan manual, dan meningkatkan akurasi data operasional.', 
+        title : "Kafe Shop POS Backend" ,
+        tool : ["express", "docker", "typescript", "postgresql"],
+        github: "https://github.com/DwiPratamaKadek/pos-cafeShop-be-express-ts/tree/main"
+
+    },
     
 ]
 
